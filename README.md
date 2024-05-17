@@ -1,3 +1,16 @@
+# Games Catalogue First Project
+
+## A simple games catalogue that shows owned and wishlisted games
+
+This project aims to make a simple application that lets you browse owned and wishlisted games.
+
+What this Project aims to be able to do:
+
+- add my games to the catalog (local, add one game at a time)
+- show my games in a list (grid view)
+- edit game details (saving them)
+- delete games from either list
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
@@ -34,16 +47,3 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
-
-# Games Catalogue First Project
-
-## A simple games catalogue that shows owned and wishlisted games
-
-This project aims to make a simple application that lets you browse owned and wishlisted games.
-
-What this Project aims to be able to do:
-
-- add my games to the catalog (local, add one game at a time)
-- show my games in a list (grid view)
-- edit game details (saving them)
-- delete games from either list
