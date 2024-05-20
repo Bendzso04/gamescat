@@ -1,0 +1,42 @@
+[
+  {
+    "id": 1,
+    "title": "The Last of Us Part II",
+    "publisher": "Sony Interactive Entertainment",
+    "release_date": "2020-06-19",
+    "rating": "M",
+    "image": "/games/lastofusII.avif"
+  },
+  {
+    "id": 2,
+    "title": "God of War",
+    "publisher": "Sony Interactive Entertainment",
+    "release_date": "2018-04-20",
+    "rating": "M",
+    "image": "/games/godofwar.avif"
+  },
+  {
+    "id": 3,
+    "title": "Marvel's Spider-Man",
+    "publisher": "Sony Interactive Entertainment",
+    "release_date": "2018-09-07",
+    "rating": "T",
+    "image": "/games/marvelsspiderman.avif"
+  },
+  {
+    "id": 4,
+    "title": "Horizon Zero Dawn",
+    "publisher": "Sony Interactive Entertainment",
+    "release_date": "2017-02-28",
+    "rating": "T",
+    "image": "/games/horizonzerodawn.avif"
+  },
+  {
+    "id": 5,
+    "title": "Uncharted 4: A Thief's End",
+    "publisher": "Sony Interactive Entertainment",
+    "release_date": "2016-05-10",
+    "rating": "T",
+    "image": "/games/uncharted4athiefsend.webp"
+  }
+]
