@@ -1,0 +1,122 @@
+[
+  {
+    "id": 1,
+    "title": "The Last of Us Part II",
+    "publisher": "Sony Interactive Entertainment",
+    "release_date": "2020-06-19",
+    "rating": "9.8",
+    "image": "images/lastofusII.avif"
+  },
+  {
+    "id": 2,
+    "title": "God of War",
+    "publisher": "Sony Interactive Entertainment",
+    "release_date": "2018-04-20",
+    "rating": "9.7",
+    "image": "images/godofwar.avif"
+  },
+  {
+    "id": 3,
+    "title": "Marvel's Spider-Man",
+    "publisher": "Sony Interactive Entertainment",
+    "release_date": "2018-09-07",
+    "rating": "9.3",
+    "image": "images/marvelsspiderman.avif"
+  },
+  {
+    "id": 4,
+    "title": "Horizon Zero Dawn",
+    "publisher": "Sony Interactive Entertainment",
+    "release_date": "2017-02-28",
+    "rating": "9.0",
+    "image": "images/horizonzerodawn.avif"
+  },
+  {
+    "id": 5,
+    "title": "Uncharted 4: A Thief's End",
+    "publisher": "Sony Interactive Entertainment",
+    "release_date": "2016-05-10",
+    "rating": "9.5",
+    "image": "images/uncharted4athiefsend.webp"
+  },
+  {
+    "id": 6,
+    "title": "Bloodborne",
+    "publisher": "Sony Interactive Entertainment",
+    "release_date": "2015-03-24",
+    "rating": "9.6",
+    "image": "images/bloodborne.jfif"
+  },
+  {
+    "id": 7,
+    "title": "Persona 5",
+    "publisher": "Atlus",
+    "release_date": "2016-09-15",
+    "rating": "9.5",
+    "image": "images/p5.webp"
+  },
+  {
+    "id": 8,
+    "title": "Red Dead Redemption 2",
+    "publisher": "Rockstar Games",
+    "release_date": "2018-10-26",
+    "rating": "9.7",
+    "image": "images/rdr2.avif"
+  },
+  {
+    "id": 9,
+    "title": "Ghost of Tsushima",
+    "publisher": "Sony Interactive Entertainment",
+    "release_date": "2020-07-17",
+    "rating": "9.3",
+    "image": "images/got.webp"
+  },
+  {
+    "id": 10,
+    "title": "Final Fantasy VII Remake",
+    "publisher": "Square Enix",
+    "release_date": "2020-04-10",
+    "rating": "9.1",
+    "image": "images/ff7r.webp"
+  },
+  {
+    "id": 11,
+    "title": "Gran Turismo Sport",
+    "publisher": "Sony Interactive Entertainment",
+    "release_date": "2017-10-17",
+    "rating": "8.9",
+    "image": "images/gts.avif"
+  },
+  {
+    "id": 12,
+    "title": "Spider-Man: Miles Morales",
+    "publisher": "Sony Interactive Entertainment",
+    "release_date": "2020-11-12",
+    "rating": "9.0",
+    "image": "images/smmm.jpg"
+  },
+  {
+    "id": 13,
+    "title": "Ratchet & Clank: Rift Apart",
+    "publisher": "Sony Interactive Entertainment",
+    "release_date": "2021-06-11",
+    "rating": "9.2",
+    "image": "images/racra.avif"
+  },
+  {
+    "id": 14,
+    "title": "Death Stranding",
+    "publisher": "Sony Interactive Entertainment",
+    "release_date": "2019-11-08",
+    "rating": "8.8",
+    "image": "images/ds.avif"
+  },
+  {
+    "id": 15,
+    "title": "The Witcher 3: Wild Hunt",
+    "publisher": "CD Projekt",
+    "release_date": "2015-05-19",
+    "rating": "9.4",
+    "image": "images/tw3wh.webp"
+  }
+]
