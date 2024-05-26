@@ -4,7 +4,7 @@ const GameList = () => {
   const [games, setGames] = useState([]);
 
   useEffect(() => {
-    fetch("data/mockdata.json")
+    fetch("data/allgamesdata.json")
       .then((response) => response.json())
       .then((data) => setGames(data))
       .catch((error) => console.error("Error fetching the data:", error));
@@ -12,7 +12,7 @@ const GameList = () => {
 
   return (
     <div className="game-list">
-      {games.map((game) => (
+      {games.slice(0, 10).map((game) => (
         <div key={game.id} className="game-item">
           <img className="game-image" src={game.image} alt={game.title} />
           <h2>{game.title}</h2>
@@ -35,9 +35,7 @@ const GameList = () => {
           grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
           gap: 20px;
           color: black;
-          listStyle: "none",
-          display: "flex",
-          justifyContent: "space-around",
+          padding-bottom: 2em;
         }
         .game-item {
           border: 1px solid #ccc;
@@ -53,10 +51,6 @@ const GameList = () => {
         }
         .game-item h2 {
           margin: 8px 0;
-        }
-        .game-image{
-            height:10px
-            width:10px
         }
       `}</style>
     </div>
