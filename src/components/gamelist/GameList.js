@@ -7,52 +7,24 @@ const GameList = () => {
     fetch("data/allgamesdata.json")
       .then((response) => response.json())
       .then((data) => setGames(data))
-      .catch((error) => console.error("Error fetching the data:", error));
-  }, []);
+      .catch((error) => console.log("error fetching the data:", error));
+  });
 
   return (
-    <div className="game-list">
+    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
       {games.slice(0, 10).map((game) => (
-        <div key={game.id} className="game-item">
-          <img className="game-image" src={game.image} alt={game.title} />
-          <h2>{game.title}</h2>
-          <p>
-            <strong>Publisher:</strong> {game.publisher}
-          </p>
-          <p>
-            <strong>Release Date:</strong>{" "}
-            {new Date(game.release_date).toLocaleDateString()}
-          </p>
-          <p>
-            <strong>Rating:</strong> {game.rating}
-          </p>
+        <div className="border p-4 rounded">
+          <img
+            className="w-full h-auto mb-2"
+            src={game.image}
+            alt={game.title}
+          />
+          <h2 className="text-lg font-semibold">{game.title}</h2>
+          <p>Publisher: {game.publisher}</p>
+          <p>Release Date: {game.release_date}</p>
+          <p>Rating: {game.rating}</p>
         </div>
       ))}
-
-      <style jsx>{`
-        .game-list {
-          display: grid;
-          grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-          gap: 20px;
-          color: black;
-          padding-bottom: 2em;
-        }
-        .game-item {
-          border: 1px solid #ccc;
-          padding: 16px;
-          border-radius: 8px;
-          background-color: #f9f9f9;
-          text-align: center;
-        }
-        .game-item img {
-          max-width: 100%;
-          height: auto;
-          border-radius: 8px;
-        }
-        .game-item h2 {
-          margin: 8px 0;
-        }
-      `}</style>
     </div>
   );
 };

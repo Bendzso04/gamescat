@@ -1,5 +1,5 @@
 const Footer = () => {
-  return <div style={footerStyle}>Footer</div>;
+  return <div style={footerStyle}>Wishlist Games App</div>;
 };
 
 export default Footer;

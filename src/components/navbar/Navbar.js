@@ -15,11 +15,6 @@ const Navbar = () => {
               Wishlist
             </Link>
           </li>
-          <li style={navItemStyle}>
-            <Link href="/addgame" style={wishlist}>
-              Add Game
-            </Link>
-          </li>
         </ul>
       </nav>
     </header>
