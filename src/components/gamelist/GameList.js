@@ -8,12 +8,12 @@ const GameList = () => {
       .then((response) => response.json())
       .then((data) => setGames(data))
       .catch((error) => console.log("error fetching the data:", error));
-  });
+  }, []);
 
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
       {games.slice(0, 10).map((game) => (
-        <div className="border p-4 rounded">
+        <div key={game.id} className="border p-4 rounded">
           <img
             className="w-full h-auto mb-2"
             src={game.image}
