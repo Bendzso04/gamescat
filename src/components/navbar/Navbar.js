@@ -15,6 +15,11 @@ const Navbar = () => {
               Wishlist
             </Link>
           </li>
+          <li className="mx-2.5 my-0">
+            <Link href="/form" className="text-white">
+              Form
+            </Link>
+          </li>
         </ul>
       </nav>
     </header>
