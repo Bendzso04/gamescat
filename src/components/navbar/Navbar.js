@@ -15,6 +15,11 @@ const Navbar = () => {
               Wishlist
             </Link>
           </li>
+          <li style={navItemStyle}>
+            <Link href="/form" style={wishlist}>
+              Add Game Form
+            </Link>
+          </li>
         </ul>
       </nav>
     </header>
