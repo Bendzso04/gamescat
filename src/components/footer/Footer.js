@@ -1,16 +1,9 @@
 const Footer = () => {
-  return <div style={footerStyle}>Wishlist Games App</div>;
+  return (
+    <div className="px-[1em] py-[0.5em] bg-[#333] text-center w-full static left-[0] bottom-[0] text-[#fff]">
+      Wishlist Games App
+    </div>
+  );
 };
 
 export default Footer;
-
-const footerStyle = {
-  padding: "0.5em 1em",
-  backgroundColor: "#333",
-  color: "#fff",
-  textAlign: "center",
-  position: "static",
-  left: "0",
-  bottom: "0",
-  width: "100%",
-};

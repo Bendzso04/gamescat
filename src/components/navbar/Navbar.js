@@ -2,54 +2,34 @@ import Link from "next/link";
 
 const Navbar = () => {
   return (
-    <header style={headerStyle}>
+    <header className="px-[20px] py-[10px] bg-[#283347]">
       <nav>
-        <ul style={navListStyle}>
-          <li style={navItemStyle}>
-            <Link href="/" style={home}>
+        <ul className="m-0 p-0 list-none flex justify-around">
+          <li className="mx-2.5 my-0">
+            <Link href="/" className="text-white">
               Home
             </Link>
           </li>
-          <li style={navItemStyle}>
-            <Link href="/wishlist" style={wishlist}>
+          <li className="mx-2.5 my-0">
+            <Link href="/wishlist" className="text-white">
               Wishlist
             </Link>
           </li>
+<<<<<<< HEAD
           <li style={navItemStyle}>
             <Link href="/form" style={wishlist}>
               Add Game Form
+=======
+          <li className="mx-2.5 my-0">
+            <Link href="/form" className="text-white">
+              Form
+>>>>>>> main
             </Link>
           </li>
         </ul>
       </nav>
     </header>
   );
-};
-
-const wishlist = {
-  color: "white",
-};
-
-const home = {
-  color: "white",
-};
-
-const headerStyle = {
-  padding: "10px 20px",
-  backgroundColor: "#283347",
-  color: "black",
-};
-
-const navListStyle = {
-  listStyle: "none",
-  display: "flex",
-  justifyContent: "space-around",
-  margin: 0,
-  padding: 0,
-};
-
-const navItemStyle = {
-  margin: "0 10px",
 };
 
 export default Navbar;
