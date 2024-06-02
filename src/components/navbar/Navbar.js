@@ -15,9 +15,15 @@ const Navbar = () => {
               Wishlist
             </Link>
           </li>
+<<<<<<< HEAD
+          <li style={navItemStyle}>
+            <Link href="/form" style={wishlist}>
+              Add Game Form
+=======
           <li className="mx-2.5 my-0">
             <Link href="/form" className="text-white">
               Form
+>>>>>>> main
             </Link>
           </li>
         </ul>

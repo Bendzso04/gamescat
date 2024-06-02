@@ -1,9 +1,7 @@
-const GameForm = () => {
-  return (
-    <div>
-      <h1>Form</h1>
-    </div>
-  );
-};
+"use client";
+
+import { useState } from "react";
+
+const GameForm = () => {};
 
 export default GameForm;
