@@ -124,34 +124,39 @@
     "title": "Sekiro: Shadows Die Twice",
     "publisher": "Activision",
     "release_date": "2019-03-22",
-    "rating": "9.2"
+    "rating": "9.2",
+    "image": "images/placeholder.png"
   },
   {
     "id": 17,
     "title": "Resident Evil 2",
     "publisher": "Capcom",
     "release_date": "2019-01-25",
-    "rating": "9.0"
+    "rating": "9.0",
+    "image": "images/placeholder.png"
   },
   {
     "id": 18,
     "title": "Control",
     "publisher": "505 Games",
     "release_date": "2019-08-27",
-    "rating": "8.8"
+    "rating": "8.8",
+    "image": "images/placeholder.png"
   },
   {
     "id": 19,
     "title": "Nier: Automata",
     "publisher": "Square Enix",
     "release_date": "2017-03-07",
-    "rating": "9.1"
+    "rating": "9.1",
+    "image": "images/placeholder.png"
   },
   {
     "id": 20,
     "title": "Doom Eternal",
     "publisher": "Bethesda Softworks",
     "release_date": "2020-03-20",
-    "rating": "9.0"
+    "rating": "9.0",
+    "image": "images/placeholder.png"
   }
 ]
