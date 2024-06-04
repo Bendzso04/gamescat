@@ -13,7 +13,7 @@ const GameList = () => {
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
       {games.slice(0, 10).map((game) => (
-        <div key={game.id} className="border p-4 rounded">
+        <div key={game.id} className="bg-[#283347] p-6 rounded-lg shadow-md">
           <img
             className="w-full h-auto mb-2"
             src={game.image}
