@@ -39,6 +39,7 @@ const GameForm = () => {
     if (response.ok) {
       console.log("Game data added successfully");
       setFormData(initialFormData);
+      alert("Game added successfully");
     } else {
       console.error("Failed to add game data");
     }

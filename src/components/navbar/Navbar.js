@@ -20,6 +20,11 @@ const Navbar = () => {
               Form
             </Link>
           </li>
+          <li className="mx-2.5 my-0 rounded text-white">
+            <Link href="/login" className="text-white">
+              Admin Page
+            </Link>
+          </li>
         </ul>
       </nav>
     </header>
