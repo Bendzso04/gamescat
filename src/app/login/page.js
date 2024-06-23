@@ -4,8 +4,8 @@ import { use, useState } from "react";
 import { useRouter } from "next/navigation";
 
 const adminCredentials = {
-  username: "admin",
-  password: "admin123",
+  username: "a",
+  password: "a",
 };
 
 export default function Login() {

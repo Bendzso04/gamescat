@@ -1,0 +1,221 @@
+const { MongoClient } = require("mongodb");
+
+const uri =
+  "mongodb+srv://bendzsodraskoczy:qXS023QyPPOe98od@cluster0.hyg9m7y.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
+
+const client = new MongoClient(uri, {
+  // Remove useNewUrlParser and useUnifiedTopology options
+  // as they are deprecated in the latest MongoDB driver versions.
+});
+
+async function run() {
+  try {
+    await client.connect();
+    console.log("Connected to MongoDB Atlas");
+
+    const database = client.db("gamesCat");
+    const collection = database.collection("GamesData");
+
+    const data = [
+      {
+        id: 1,
+        title: "The Last of Us Part II",
+        publisher: "Sony Interactive Entertainment",
+        release_date: "2020-06-19",
+        rating: "9.8",
+        image: "images/lastofusII.avif",
+      },
+      {
+        id: 2,
+        title: "God of War",
+        publisher: "Sony Interactive Entertainment",
+        release_date: "2018-04-20",
+        rating: "9.7",
+        image: "images/godofwar.avif",
+      },
+      {
+        id: 3,
+        title: "Marvel's Spider-Man",
+        publisher: "Sony Interactive Entertainment",
+        release_date: "2018-09-07",
+        rating: "9.3",
+        image: "images/marvelsspiderman.avif",
+      },
+      {
+        id: 4,
+        title: "Horizon Zero Dawn",
+        publisher: "Sony Interactive Entertainment",
+        release_date: "2017-02-28",
+        rating: "9.0",
+        image: "images/horizonzerodawn.avif",
+      },
+      {
+        id: 5,
+        title: "Uncharted 4: A Thief's End",
+        publisher: "Sony Interactive Entertainment",
+        release_date: "2016-05-10",
+        rating: "9.5",
+        image: "images/uncharted4athiefsend.webp",
+      },
+      {
+        id: 6,
+        title: "Bloodborne",
+        publisher: "Sony Interactive Entertainment",
+        release_date: "2015-03-24",
+        rating: "9.6",
+        image: "images/bloodborne.jfif",
+      },
+      {
+        id: 7,
+        title: "Persona 5",
+        publisher: "Atlus",
+        release_date: "2016-09-15",
+        rating: "9.5",
+        image: "images/p5.webp",
+      },
+      {
+        id: 8,
+        title: "Red Dead Redemption 2",
+        publisher: "Rockstar Games",
+        release_date: "2018-10-26",
+        rating: "9.7",
+        image: "images/rdr2.avif",
+      },
+      {
+        id: 9,
+        title: "Ghost of Tsushima",
+        publisher: "Sony Interactive Entertainment",
+        release_date: "2020-07-17",
+        rating: "9.3",
+        image: "images/got.webp",
+      },
+      {
+        id: 10,
+        title: "Final Fantasy VII Remake",
+        publisher: "Square Enix",
+        release_date: "2020-04-10",
+        rating: "9.1",
+        image: "images/ff7r.webp",
+      },
+      {
+        id: 11,
+        title: "Gran Turismo Sport",
+        publisher: "Sony Interactive Entertainment",
+        release_date: "2017-10-17",
+        rating: "8.9",
+        image: "images/gts.avif",
+      },
+      {
+        id: 12,
+        title: "Spider-Man: Miles Morales",
+        publisher: "Sony Interactive Entertainment",
+        release_date: "2020-11-12",
+        rating: "9.0",
+        image: "images/smmm.jpg",
+      },
+      {
+        id: 13,
+        title: "Ratchet & Clank: Rift Apart",
+        publisher: "Sony Interactive Entertainment",
+        release_date: "2021-06-11",
+        rating: "9.2",
+        image: "images/racra.avif",
+      },
+      {
+        id: 14,
+        title: "Death Stranding",
+        publisher: "Sony Interactive Entertainment",
+        release_date: "2019-11-08",
+        rating: "8.8",
+        image: "images/ds.avif",
+      },
+      {
+        id: 15,
+        title: "The Witcher 3: Wild Hunt",
+        publisher: "CD Projekt",
+        release_date: "2015-05-19",
+        rating: "9.4",
+        image: "images/tw3wh.webp",
+      },
+      {
+        id: 16,
+        title: "Sekiro: Shadows Die Twice",
+        publisher: "Activision",
+        release_date: "2019-03-22",
+        rating: "9.2",
+        image: "images/placeholder.png",
+      },
+      {
+        id: 17,
+        title: "Resident Evil 2",
+        publisher: "Capcom",
+        release_date: "2019-01-25",
+        rating: "9.0",
+        image: "images/placeholder.png",
+      },
+      {
+        id: 18,
+        title: "Control",
+        publisher: "505 Games",
+        release_date: "2019-08-27",
+        rating: "8.8",
+        image: "images/placeholder.png",
+      },
+      {
+        id: 19,
+        title: "Nier: Automata",
+        publisher: "Square Enix",
+        release_date: "2017-03-07",
+        rating: "9.1",
+        image: "images/placeholder.png",
+      },
+      {
+        id: 20,
+        title: "Doom Eternal",
+        publisher: "Bethesda Softworks",
+        release_date: "2020-03-20",
+        rating: "9.0",
+        image: "images/placeholder.png",
+      },
+      {
+        id: 21,
+        title: "ads",
+        publisher: "asd",
+        release_date: "1212-12-12",
+        rating: "1.5",
+        image: "images/placeholder.png",
+      },
+      {
+        id: 22,
+        title: "wd",
+        publisher: "wdwe",
+        release_date: "3223-12-12",
+        rating: "5",
+        image: "images/placeholder.png",
+      },
+      {
+        id: 23,
+        title: "wa",
+        publisher: "wa",
+        release_date: "1221-12-12",
+        rating: "1.4",
+        image: "images/placeholder.png",
+      },
+      {
+        id: 24,
+        title: "GTA Chinatown",
+        publisher: "Rockstar Games",
+        release_date: "1212-12-12",
+        rating: "1",
+        image: "images/placeholder.png",
+      },
+    ];
+
+    const result = await collection.insertMany(data);
+    console.log(`${result.insertedCount} documents were inserted.`);
+  } finally {
+    await client.close();
+  }
+}
+
+run().catch(console.dir);

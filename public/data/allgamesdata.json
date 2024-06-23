@@ -174,5 +174,21 @@
     "release_date": "3223-12-12",
     "rating": "5",
     "image": "images/placeholder.png"
+  },
+  {
+    "id": 23,
+    "title": "wa",
+    "publisher": "wa",
+    "release_date": "1221-12-12",
+    "rating": "1.4",
+    "image": "images/placeholder.png"
+  },
+  {
+    "id": 24,
+    "title": "GTA Chinatown",
+    "publisher": "Rockstar Games",
+    "release_date": "1212-12-12",
+    "rating": "1",
+    "image": "images/placeholder.png"
   }
 ]

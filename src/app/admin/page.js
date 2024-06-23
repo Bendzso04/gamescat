@@ -1,35 +1,30 @@
-"use client";
-import AdminGameList from "../../components/admingamelist/AdminGameList";
+// src/app/page.js
+import LogoutBtn from "../../components/logoutbtn/LogoutBtn";
+import Link from "next/link";
+import fs from "fs";
+import path from "path";
 
-export default function admin() {
-  const handleClearCookies = () => {
-    // Clear the cookies here
-    document.cookie.split(";").forEach((cookie) => {
-      const eqPos = cookie.indexOf("=");
-      const name = eqPos > -1 ? cookie.substr(0, eqPos) : cookie;
-      document.cookie = name + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT";
-    });
-
-    console.log("Cookies cleared");
-    window.location.href = "/";
-  };
+export default async function HomePage() {
+  const filePath = path.join(
+    process.cwd(),
+    "public",
+    "data",
+    "allgamesdata.json"
+  );
+  const jsonData = fs.readFileSync(filePath, "utf-8");
+  const games = JSON.parse(jsonData);
 
   return (
-    <div className="min-h-screen  p-8">
-      <main>
-        <h1 className="text-4xl font-bold text-center mb-8">Admin Page</h1>
-        <div>
-          <AdminGameList />
-        </div>
-        <div>
-          <button
-            onClick={handleClearCookies}
-            className="mt-2 px-4 py-2 bg-red-500 text-white rounded hover:bg-red-700 w-full"
-          >
-            Logout
-          </button>
-        </div>
-      </main>
+    <div>
+      <h1>Games List</h1>
+      <ul>
+        {games.map((game) => (
+          <li key={game.id}>
+            <Link href={`admin/games/${game.id}`}>{game.title}</Link>
+          </li>
+        ))}
+      </ul>
+      <LogoutBtn />
     </div>
   );
 }
