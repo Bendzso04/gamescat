@@ -2,7 +2,7 @@ import Link from "next/link";
 
 const Navbar = () => {
   return (
-    <header className="px-[20px] py-[10px] bg-[#283347]">
+    <header className="px-[20px] py-[10px] bg-[#283347] rounded-lg">
       <nav>
         <ul className="m-0 p-0 list-none flex justify-around">
           <li className="mx-2.5 my-0">
@@ -18,6 +18,11 @@ const Navbar = () => {
           <li className="mx-2.5 my-0">
             <Link href="/form" className="text-white">
               Form
+            </Link>
+          </li>
+          <li className="mx-2.5 my-0 rounded text-white">
+            <Link href="/login" className="text-white">
+              Admin Page
             </Link>
           </li>
         </ul>
