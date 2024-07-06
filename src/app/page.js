@@ -1,6 +1,4 @@
 "use client";
-
-import Head from "next/head";
 import GameList from "../components/gamelist/GameList";
 
 export default function Home() {
