@@ -1,28 +1,45 @@
-import { NextResponse } from "next/server";
-import fs from "fs";
-import path from "path";
+import clientPromise from "../../../lib/mongodb";
 
-export async function POST(req) {
-  const filePath = path.join(process.cwd(), "public/data/allgamesdata.json");
+export const POST = async (req, res) => {
+  try {
+    const client = await clientPromise;
+    const db = client.db("gamescat");
+    const body = await req.json();
 
-  // Read the existing JSON file
-  const fileContents = fs.readFileSync(filePath, "utf8");
-  const allGamesData = JSON.parse(fileContents);
+    const { title, publisher, release_date, rating, imageBase64 } = body;
 
-  // Determine the highest existing id
-  const highestId = allGamesData.reduce(
-    (maxId, game) => Math.max(game.id, maxId),
-    0
-  );
+    // Calculate the new id based on the number of documents in the collection
+    const count = await db.collection("GameData").countDocuments();
+    const newId = count + 1;
 
-  // Parse the incoming request body
-  const newGameData = await req.json();
-  newGameData.id = highestId + 1; // Assign the new id
+    // Generate the image URL based on the title (you can adjust this to your preference)
+    const imageName = title.toLowerCase().replace(/\s+/g, "-") + ".avif";
+    const imageUrl = `images/${imageName}`;
 
-  allGamesData.push(newGameData);
+    const newGame = {
+      id: newId,
+      title,
+      publisher,
+      release_date,
+      rating,
+      image: imageUrl,
+      imageBase64,
+    };
 
-  // Write the updated data back to the file
-  fs.writeFileSync(filePath, JSON.stringify(allGamesData, null, 2), "utf8");
+    await db.collection("GameData").insertOne(newGame);
 
-  return NextResponse.json({ message: "Game data added successfully!" });
-}
+    return new Response(
+      JSON.stringify({ message: "Game added successfully" }),
+      {
+        status: 200,
+        headers: { "Content-Type": "application/json" },
+      }
+    );
+  } catch (error) {
+    console.error(error);
+    return new Response(JSON.stringify({ error: "Internal Server Error" }), {
+      status: 500,
+      headers: { "Content-Type": "application/json" },
+    });
+  }
+};
