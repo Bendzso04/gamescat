@@ -1,86 +1,69 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 const GameForm = () => {
-  const [file, setFile] = useState(null);
-  const [games, setGames] = useState([]);
-  const [publishersJSON, setPublishersJSON] = useState([]);
   const [formData, setFormData] = useState({
-    id: "",
     title: "",
     publisher: "",
     release_date: "",
     rating: "",
-    image: "images/placeholder.png",
+    imageBase64: "",
   });
+  const [message, setMessage] = useState("");
+  const [selectedImage, setSelectedImage] = useState("");
+  const [selectedFile, setSelectedFile] = useState(null);
 
-  // Fetch the games data
-  useEffect(() => {
-    fetch("data/allgamesdata.json")
-      .then((response) => response.json())
-      .then((data) => setGames(data))
-      .catch((error) => console.log("error fetching the data:", error));
-  }, []);
-
-  // Extract unique publishers
-  useEffect(() => {
-    if (games.length > 0) {
-      const extractPub = (games) => {
-        const pub = games.map((game) => ({
-          id: game.id,
-          publisher: game.publisher,
-        }));
-
-        const uniquePub = pub.filter(
-          (publisher, index, self) =>
-            index === self.findIndex((p) => p.publisher === publisher.publisher)
-        );
-
-        return uniquePub;
-      };
-
-      const extractedPublishers = extractPub(games);
-      setPublishersJSON(extractedPublishers);
-      // console.log(extractedPublishers);
-    }
-  }, [games]);
-
-  // Handle input changes
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData((prevData) => ({
-      ...prevData,
-      [name]: value,
-    }));
+    setFormData({ ...formData, [name]: value });
   };
 
-  // Handle form submission
+  const handleFileChange = (e) => {
+    const file = e.target.files[0];
+    const reader = new FileReader();
+    reader.onloadend = () => {
+      setFormData((prevData) => ({
+        ...prevData,
+        imageBase64: reader.result.split(",")[1],
+      }));
+    };
+    if (file) {
+      reader.readAsDataURL(file);
+      setSelectedImage(URL.createObjectURL(file));
+      setSelectedFile(file);
+    }
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!file) return;
+    setMessage("");
 
-    const response = await fetch("/api/addGame", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(formData),
-    });
+    try {
+      const response = await fetch("/api/addGame", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
 
-    if (response.ok) {
-      console.log("Game data added successfully");
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+
+      const result = await response.json();
+      setMessage(result.message);
       setFormData({
-        id: "",
         title: "",
         publisher: "",
         release_date: "",
         rating: "",
-        image: "images/placeholder.png",
+        imageBase64: "",
       });
-      alert("Game added successfully");
-    } else {
-      console.error("Failed to add game data");
+    } catch (err) {
+      console.error(err);
+      setMessage("Error: " + err.message);
     }
   };
 
@@ -105,20 +88,14 @@ const GameForm = () => {
           <label className="block text-white-700 font-bold mb-2">
             Publisher:
           </label>
-          <select
+          <input
+            type="text"
             name="publisher"
             value={formData.publisher}
             onChange={handleChange}
             className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             required
-          >
-            <option value="">Select a publisher</option>
-            {publishersJSON.map((publisher) => (
-              <option key={publisher.id} value={publisher.publisher}>
-                {publisher.publisher}
-              </option>
-            ))}
-          </select>
+          />
         </div>
         <div className="mb-4">
           <label className="block text-white-700 font-bold mb-2">
@@ -136,11 +113,7 @@ const GameForm = () => {
         <div className="mb-4">
           <label className="block text-white-700 font-bold mb-2">Rating:</label>
           <input
-            type="number"
-            min="0"
-            max="10"
-            maxLength="3"
-            step="0.1"
+            type="text"
             name="rating"
             value={formData.rating}
             onChange={handleChange}
@@ -149,27 +122,30 @@ const GameForm = () => {
           />
         </div>
         <div className="mb-4">
-          <label className="block text-white-700 font-bold mb-2">
-            Image:
-            <input
-              type="file"
-              name="image"
-              onChange={(e) => setFile(e.target.files?.[0])}
-              className="shadow appearance-none border rounded w-full py-2 px-3 text-white-700 leading-tight focus:outline-none focus:shadow-outline"
-              required
-            />
-          </label>
+          <label className="block text-white-700 font-bold mb-2">Image:</label>
+          <input
+            type="file"
+            name="image"
+            accept="image/*"
+            onChange={handleFileChange}
+            className="shadow appearance-none border rounded w-full py-2 px-3 text-white-700 leading-tight focus:outline-none focus:shadow-outline"
+          />
+          <div>
+            {selectedImage ? (
+              <img src={selectedImage} className="w-20 h-auto mr-3" />
+            ) : (
+              <span>Image Preview</span>
+            )}
+          </div>
         </div>
-        <div>
-          <button
-            type="submit"
-            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-            value="upload"
-          >
-            submit
-          </button>
-        </div>
+        <button
+          type="submit"
+          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+        >
+          Add Game
+        </button>
       </form>
+      {message && <p className="text-white-700">{message}</p>}
     </div>
   );
 };
