@@ -8,11 +8,9 @@ export const POST = async (req, res) => {
 
     const { title, publisher, release_date, rating, imageBase64 } = body;
 
-    // Calculate the new id based on the number of documents in the collection
     const count = await db.collection("GameData").countDocuments();
     const newId = count + 1;
 
-    // Generate the image URL based on the title (you can adjust this to your preference)
     const imageName = title.toLowerCase().replace(/\s+/g, "-") + ".avif";
     const imageUrl = `images/${imageName}`;
 
