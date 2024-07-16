@@ -48,7 +48,7 @@ const GameSearch = () => {
   }, []);
 
   return (
-    <div className="items-center justify-center min-h-screen bg-gray-800">
+    <div className="items-center justify-center min-h-screen w-[80vw] bg-gray-800">
       <input
         type="text"
         value={query}

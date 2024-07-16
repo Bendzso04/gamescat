@@ -25,14 +25,3 @@ a {
   text-decoration: none;
   color: inherit;
 }
-
-.container {
-  width: 95em;
-  margin: auto;
-  padding-left: 3em;
-  padding-right: 3em;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}

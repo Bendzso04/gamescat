@@ -68,7 +68,7 @@ const GameForm = () => {
   };
 
   return (
-    <div>
+    <div className="items-center justify-center min-h-screen w-[80vw]">
       <form
         className="bg-[#283347] p-6 rounded-lg shadow-md"
         onSubmit={handleSubmit}
