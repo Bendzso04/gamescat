@@ -1,6 +1,7 @@
 // src/app/protected/page.js
 "use client";
 
+import DynamicGames from "@/components/dynamicgames/DynamicGames";
 import { useSession, signIn, signOut } from "next-auth/react";
 
 export default function Admin() {
@@ -37,6 +38,7 @@ export default function Admin() {
       >
         Sign out
       </button>
+      <DynamicGames />
     </div>
   );
 }
